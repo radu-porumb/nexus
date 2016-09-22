@@ -1,6 +1,6 @@
 FROM alpine:3.4
 
-MAINTAINER Stefan Prodan
+MAINTAINER Radu Porumb
 
 ENV NEXUS_VERSION="3.0.2-02" \
     NEXUS_DATA="/nexus-data" \
@@ -36,4 +36,6 @@ WORKDIR "/opt/nexus-${NEXUS_VERSION}"
 
 VOLUME ${NEXUS_DATA}
 
-CMD ["su-exec", "nexus", "bin/nexus", "run"]
+ENTRYPOINT ["su-exec", "nexus", "bin/nexus"]
+
+CMD ["run"]
